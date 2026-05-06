@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chatbot RAG - Aplicación para ingestar documentos y hacer preguntas sobre ellos">
+    <title>Chatbot RAG</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1 class="app-title">🤖 Chatbot RAG</h1>
+            <div id="appStatus" class="app-status app-status--info">Conectando...</div>
+        </div>
+    </header>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Layout principal: Documentos y Chat -->
+        <div class="main-layout">
+            <!-- Panel de Documentos -->
+            <section class="panel">
+                <h2 class="panel-title">📄 Mis Documentos</h2>
+                
+                <!-- Sección de carga de archivos -->
+                <div class="upload-section">
+                    <div class="file-input-wrapper">
+                        <input 
+                            type="file" 
+                            id="documentInput"
+                            accept=".pdf,.txt,.docx,.doc"
+                            aria-label="Seleccionar archivo"
+                        >
+                        <label for="documentInput" class="file-input-label">
+                            <div>📁 Arrastra archivos aquí o haz clic para seleccionar</div>
+                            <small>(PDF, TXT, DOCX - Max 50MB)</small>
+                        </label>
+                    </div>
+                    
+                    <button id="uploadBtn" class="btn btn-primary" aria-label="Subir documento">
+                        ⬆️ Subir Documento
+                    </button>
+
+                    <div id="feedbackMessage" class="feedback-message"></div>
+
+                    <div id="loadingIndicator" class="loading-indicator" aria-live="polite">
+                        <div class="spinner"></div>
+                        <p>Procesando documento...</p>
+                    </div>
+                </div>
+
+                <!-- Lista de documentos -->
+                <div id="documentList" aria-label="Lista de documentos ingresados">
+                    <!-- Los documentos se renderizarán aquí -->
+                </div>
+
+                <!-- Botones de acción -->
+                <div style="display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-lg); flex-wrap: wrap;">
+                    <button id="refreshBtn" class="btn btn-secondary btn-sm" aria-label="Actualizar lista">
+                        🔄 Actualizar Lista
+                    </button>
+                    <button id="syncBtn" class="btn btn-secondary btn-sm" aria-label="Sincronizar documentos con error">
+                        🔁 Sincronizar Errores
+                    </button>
+                    <button id="resetBtn" class="btn btn-secondary btn-sm" aria-label="Limpiar todo y reiniciar" style="background-color: #ff6b6b;">
+                        🗑️ Limpiar Todo
+                    </button>
+                </div>
+            </section>
+
+            <!-- Panel de Chat -->
+            <section class="panel">
+                <h2 class="panel-title">💬 Chat</h2>
+                
+                <!-- Área de mensajes -->
+                <div 
+                    id="chatMessages" 
+                    role="log" 
+                    aria-live="polite" 
+                    aria-label="Área de mensajes del chat"
+                >
+                    <!-- Los mensajes se renderizarán aquí -->
+                </div>
+
+                <!-- Indicador de carga del chat -->
+                <div id="chatLoadingIndicator" class="loading-indicator" aria-live="polite">
+                    <div class="spinner"></div>
+                    <p>Procesando pregunta...</p>
+                </div>
+
+                <!-- Sección de entrada -->
+                <div class="chat-input-section">
+                    <input 
+                        type="text"
+                        id="chatInput"
+                        placeholder="Escribe tu pregunta sobre los documentos..."
+                        aria-label="Entrada de pregunta"
+                    >
+                    <button id="sendBtn" class="btn btn-primary" aria-label="Enviar pregunta">
+                        📤 Enviar
+                    </button>
+                </div>
+
+                <!-- Botón para limpiar historial -->
+                <div style="display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-md);">
+                    <button id="clearChatBtn" class="btn btn-secondary btn-sm" aria-label="Limpiar historial">
+                        🗑️ Limpiar Historial
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Script principal -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

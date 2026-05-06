@@ -1,0 +1,38 @@
+# Dependencias del Backend - Chatbot RAG
+
+# Framework web
+fastapi==0.104.1
+uvicorn==0.24.0
+
+# Manejo de archivos
+python-multipart==0.0.6
+
+# Variables de entorno
+python-dotenv==1.0.0
+
+# LlamaIndex y componentes
+llama-index-core==0.9.30
+llama-index-llms-groq==0.1.4
+llama-index-embeddings-huggingface==0.2.0
+llama-index-vector-stores-chroma==0.1.7
+
+# Base de datos vectorial
+chromadb==0.4.10
+
+# API de Groq (LLM)
+groq==0.4.2
+
+# HuggingFace para embeddings
+huggingface-hub==0.19.4
+transformers==4.35.0
+torch==2.1.1
+
+# CORS para el frontend
+fastapi-cors==0.0.6
+
+# Utilidades
+requests==2.31.0
+pydantic==2.5.0
+
+# Opcional: para mejor logging
+colorama==0.4.6
